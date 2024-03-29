@@ -26,31 +26,74 @@
         "type": "imageSelection",
         "question": "Which image represents the traversal method known as 'Inorder' in a binary tree?",
         "options": [
-           
+            "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/preorder.png",
+            "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/postorder.png",
+            "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/inorder.png"
         ],
-        "correctAnswer": 
+        "correctAnswer": "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/inorder.png"
       }
+      {
+      "id": 5,
+        "type": "narrative",
+        "question": "Which data structure organizes elements in a hierarchical order with a root node and multiple child nodes?",
+        "correctAnswer": "Tree"
     ]
   },
   "Java": {
     "questions": [
       {
-        "id": 5,
+        "id": 6,
         "type": "multipleChoice",
-        "question": "What is the main difference between abstract class and interface in Java?",
+        "question": "What does JVM stand for?",
         "options": [
-          "An abstract class can have both abstract and non-abstract methods, while an interface can only have abstract methods.",
-          "An interface can have both abstract and non-abstract methods, while an abstract class can only have abstract methods.",
-          "An abstract class cannot have constructors, while an interface can have constructors.",
-          "An interface cannot have constructors, while an abstract class can have constructors."
+          "Java Virtual Machine",
+          "Java Virtual Memory",
+          "Java Verification Module",
+          "Java Visual Model"
         ],
-        "correctAnswer": "An abstract class can have both abstract and non-abstract methods, while an interface can only have abstract methods."
+        "correctAnswer": "Java Virtual Machine"
       },
       {
-        "id": 6,
+        "id": 7,
         "type": "narrative",
-        "question": "Explain the concept of encapsulation in Java.",
-        "correctAnswer": "Encapsulation is the bundling of data and methods that operate on the data into a single unit or class."
+        "question": "Which keyword is used to define a constant value in Java?",
+        "correctAnswer": "final"
+      }
+      {
+      "id": 8,
+      "type": "multipleChoice",
+      "question": "Which of the following access modifiers restricts access the most?",
+      "options": [
+        "public",
+        "private",
+        "protected",
+        "default"
+      ],
+      "correctAnswer": "private"
+      }
+      {
+        "id": 9,
+        "type": imageSelection,
+        "question": "Which code returns a String in reverse order?",
+        "options":
+        [
+          "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/reversedString.png",
+          "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/option2.png",
+          "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/option3.png"
+        ],
+        "correctAnswer": "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/reversedString.png"
+      }
+      {
+      "id": 10,
+      "type": "multipleChoice",
+      "question": "What does the static keyword indicate in Java?",
+      "options": [
+        "It indicates that the method can be accessed without creating an instance of the class.",
+        "It indicates that the method cannot be overridden.",
+        "It indicates that the method is thread-safe.",
+        "It indicates that the method is synchronized."
+      ],
+      "correctAnswer": "It indicates that the method can be accessed without creating an instance of the class."
       }
     ]
   }
