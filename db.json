@@ -14,13 +14,13 @@
         "question": "Which data structure follows the FIFO behavior?",
         "correctAnswer": "Queue"
       },
-     {
+      {
         "id": 3,
         "type": "multipleChoice",
         "question": "Which data structure is best suited for implementing a LIFO (Last In, First Out) behavior?",
         "options": ["Array", "Linked List", "Stack", "Queue"],
         "correctAnswer": "Stack"
-      }  
+      },
       {
         "id": 4,
         "type": "imageSelection",
@@ -31,12 +31,14 @@
             "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/inorder.png"
         ],
         "correctAnswer": "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/inorder.png"
-      }
+      },
       {
-      "id": 5,
+        "id": 5,
         "type": "narrative",
         "question": "Which data structure organizes elements in a hierarchical order with a root node and multiple child nodes?",
         "correctAnswer": "Tree"
+      }
+    ]
   },
   "Java": {
     "questions": [
@@ -57,42 +59,41 @@
         "type": "narrative",
         "question": "Which keyword is used to define a constant value in Java?",
         "correctAnswer": "final"
-      }
+      },
       {
-      "id": 8,
-      "type": "multipleChoice",
-      "question": "Which of the following access modifiers restricts access the most?",
-      "options": [
-        "public",
-        "private",
-        "protected",
-        "default"
-      ],
-      "correctAnswer": "private"
-      }
+        "id": 8,
+        "type": "multipleChoice",
+        "question": "Which of the following access modifiers restricts access the most?",
+        "options": [
+          "public",
+          "private",
+          "protected",
+          "default"
+        ],
+        "correctAnswer": "private"
+      },
       {
         "id": 9,
         "type": "imageSelection",
         "question": "Which code returns a String in reverse order?",
-        "options":
-        [
+        "options": [
           "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/reversedString.png",
           "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/option2.png",
           "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/option3.png"
         ],
         "correctAnswer": "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/reversedString.png"
-      }
+      },
       {
-      "id": 10,
-      "type": "multipleChoice",
-      "question": "What does the static keyword indicate in Java?",
-      "options": [
-        "It indicates that the method can be accessed without creating an instance of the class.",
-        "It indicates that the method cannot be overridden.",
-        "It indicates that the method is thread-safe.",
-        "It indicates that the method is synchronized."
-      ],
-      "correctAnswer": "It indicates that the method can be accessed without creating an instance of the class."
+        "id": 10,
+        "type": "multipleChoice",
+        "question": "What does the static keyword indicate in Java?",
+        "options": [
+          "It indicates that the method can be accessed without creating an instance of the class.",
+          "It indicates that the method cannot be overridden.",
+          "It indicates that the method is thread-safe.",
+          "It indicates that the method is synchronized."
+        ],
+        "correctAnswer": "It indicates that the method can be accessed without creating an instance of the class."
       }
     ]
   }
