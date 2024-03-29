@@ -1,1 +1,8 @@
-
+{
+  "example": "This is a test JSON object",
+  "number": 123,
+  "array": ["item1", "item2", "item3"],
+  "nestedObject": {
+    "nestedKey": "nestedValue"
+  }
+}
