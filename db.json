@@ -4,46 +4,31 @@
       {
         "id": 1,
         "type": "multipleChoice",
-        "question": "What is the time complexity of binary search?",
-        "options": ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
-        "correctAnswer": "O(log n)"
+        "question": "What is the value of the postfix expression 6 3 2 4 + – *?",
+        "options": ["-18", "28", "22", "40"],
+        "correctAnswer": "-18"
       },
       {
         "id": 2,
         "type": "narrative",
-        "question": "Explain the concept of inheritance in object-oriented programming.",
-        "correctAnswer": "Inheritance is a mechanism in which a new class is derived from an existing class. It allows the derived class to inherit properties and behavior from the base class."
+        "question": "Which data structure follows the FIFO behavior?",
+        "correctAnswer": "Queue"
       },
-      {
+     {
         "id": 3,
-        "type": "textButtons",
-        "question": "Which of the following is NOT a programming language?",
-        "options": ["Java", "Python", "HTML", "CSS"],
-        "correctAnswer": "HTML"
-      },
+        "type": "multipleChoice",
+        "question": "Which data structure is best suited for implementing a LIFO (Last In, First Out) behavior?",
+        "options": ["Array", "Linked List", "Stack", "Queue"],
+        "correctAnswer": "Stack"
+      }  
       {
         "id": 4,
         "type": "imageSelection",
-        "question": "Which of these pictures represents a stack?",
+        "question": "Which image represents the traversal method known as 'Inorder' in a binary tree?",
         "options": [
-          {
-            "imageURL": "https://example.com/stack.jpg",
-            "label": "Picture A"
-          },
-          {
-            "imageURL": "https://example.com/queue.jpg",
-            "label": "Picture B"
-          },
-          {
-            "imageURL": "https://example.com/array.jpg",
-            "label": "Picture C"
-          },
-          {
-            "imageURL": "https://example.com/linked-list.jpg",
-            "label": "Picture D"
-          }
+           
         ],
-        "correctAnswer": "Picture A"
+        "correctAnswer": 
       }
     ]
   },
