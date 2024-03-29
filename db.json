@@ -72,7 +72,7 @@
       }
       {
         "id": 9,
-        "type": imageSelection,
+        "type": "imageSelection",
         "question": "Which code returns a String in reverse order?",
         "options":
         [
