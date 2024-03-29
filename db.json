@@ -37,7 +37,6 @@
         "type": "narrative",
         "question": "Which data structure organizes elements in a hierarchical order with a root node and multiple child nodes?",
         "correctAnswer": "Tree"
-    ]
   },
   "Java": {
     "questions": [
