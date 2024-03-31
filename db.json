@@ -12,7 +12,7 @@
         "id": 2,
         "type": "narrative",
         "question": "Which data structure follows the FIFO behavior?",
-        "correctAnswer": "Queue"
+        "correctAnswer": ["Queue", "queue"]
       },
       {
         "id": 3,
@@ -36,7 +36,7 @@
         "id": 5,
         "type": "narrative",
         "question": "Which data structure organizes elements in a hierarchical order with a root node and multiple child nodes?",
-        "correctAnswer": "Tree"
+        "correctAnswer": ["Tree", "tree"]
       }
     ]
   },
@@ -58,7 +58,7 @@
         "id": 7,
         "type": "narrative",
         "question": "Which keyword is used to define a constant value in Java?",
-        "correctAnswer": "final"
+        "correctAnswer": ["Final", "final"]
       },
       {
         "id": 8,
