@@ -1,48 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SPA App</title>
-    <link rel="stylesheet" href="SPAStyleSheet.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science Quiz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="SPAStyleSheet.css">
 </head>
+<body style="background-color:lavender; color: purple;">
+    <div id="start-page" class="container">
+        <h1>Computer Science Quiz</h1>
+        <form id="quiz-selection-form">
+            <div class="form-group">
+                <label for="student-name">Enter your name:</label>
+                <input type="text" class="form-control" id="student-name" required>
+            </div>
+            <div class="form-group">
+                <label for="quiz-select">Select a quiz:</label>
+                <select class="form-control" id="quiz-select">
+                    <option value="DataStructures">Data Structures</option>
+                    <option value="Java">Java</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-light" style="color: purple;">Start Quiz</button>
+        </form>
+    </div>
 
-<body style="background-color: palevioletred;">
-<div id="start-page" class="container">
-    <h1>Impossible Quiz</h1>
+    <div id="quiz-view" class="container"></div>
+    <div id="feedback-view" class="container"></div>
+    <div id="result-view" class="container"></div>
 
-    <form id="quiz-selection-form">
-        <div class="form-group">
-            <label for="student-name">Enter your name:</label>
-            <input type="text" class="form-control" id="student-name" required>
+    <!-- Handlebars template -->
+    <script id="quiz-template" type="text/x-handlebars-template">
+        <div class="quiz-container">
+            <h2>{{question}}</h2>
+            <form id="quiz-form">
+                <ul class="answer-choices">
+                    {{#each options}}
+                        <li>
+                            {{#if image}}
+                                <label><input type="radio" name="answer" value="{{content}}"><img src="{{content}}" alt="Option"></label>
+                            {{else}}
+                                <label><input type="radio" name="answer" value="{{content}}"> {{content}}</label>
+                            {{/if}}
+                        </li><br>
+                    {{/each}}
+                </ul>
+                <button id="submit-answer-btn" class="btn btn-light">Submit Answer</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="quiz-select">Select a quiz:</label>
-            <select class="form-control" id="quiz-select">
-                <option value="quiz1">Quiz 1</option>
-                <option value="quiz2">Quiz 2</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Start Quiz</button>
-    </form>
-</div>
+    </script>
 
-<!-- Quiz View -->
-<div id="quiz-view" class="container">
-    <!-- Quiz questions will be dynamically inserted here -->
-</div>
-
-<!-- Feedback View -->
-<div id="feedback-view" class="container">
-    <!-- Feedback message and "Got it" button will be dynamically inserted here -->
-</div>
-
-<!-- Quiz Result View -->
-<div id="result-view" class="container">
-    <!-- Quiz result message and options to retake or return to main page will be dynamically inserted here -->
-</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="SPAQuiz.js"></script>
 </body>
 </html>
