@@ -62,19 +62,32 @@ function renderScoreboard() {
     const scoreboardHTML = `
         <div class="scoreboard">
             <p>Questions Answered: ${questionsAnswered}</p>
-            <p>Elapsed Time: ${elapsedTime} seconds</p>
+            <p>Elapsed Time: ${elapsedTime} </p>
             <p>Total Score: ${score}%</p>
         </div>
     `;
     feedbackView.innerHTML = scoreboardHTML;
 }
 
-// Function to calculate the elapsed time
+// Function to calculate the elapsed time in minutes and seconds
 function calculateElapsedTime() {
     const currentTime = new Date().getTime();
     const elapsedTimeInSeconds = (currentTime - startTime) / 1000;
-    return elapsedTimeInSeconds.toFixed(1);
+    
+    // Calculate minutes and seconds
+    const minutes = Math.floor(elapsedTimeInSeconds / 60);
+    const seconds = Math.floor(elapsedTimeInSeconds % 60);
+    
+    // Format the elapsed time
+    let formattedTime = `${minutes} minutes`;
+    if (seconds > 0) {
+        formattedTime += ` ${seconds} seconds`;
+    }
+
+    return formattedTime;
 }
+
+
 
 // Function to calculate the score
 function calculateScore() {
@@ -215,8 +228,6 @@ function nextQuestion() {
     }
 }
 
-
-// Function to end the quiz and display results
 // Function to end the quiz and display results
 function endQuiz() {
 
@@ -226,7 +237,7 @@ function endQuiz() {
     // Display result view
     resultView.innerHTML = `<h2>Quiz Results</h2>`;
     resultView.innerHTML += `<p>Total Score: ${score}%</p>`;
-    resultView.innerHTML += `<p>Elapsed Time: ${elapsedTime} seconds</p>`; // Add elapsed time
+    resultView.innerHTML += `<p>Elapsed Time: ${elapsedTime}</p>`; // Add elapsed time
 
     // Determine pass/fail message
     let message;
@@ -248,7 +259,6 @@ function endQuiz() {
         location.reload(); 
     });
 }
-
 
 // Function to reset quiz and start over
 function resetQuiz() {
