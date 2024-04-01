@@ -39,7 +39,7 @@
                     {{#each options}}
                         <li>
                             {{#if image}}
-                                <label><input type="radio" name="answer" value="{{content}}"><img src="{{content}}" alt="Option"></label>
+                                <label><input type="radio" name="answer" value="{{content}}"><img src="{{content}}" alt="Option" width="300" height="200"></label>
                             {{else}}
                                 <label><input type="radio" name="answer" value="{{content}}"> {{content}}</label>
                             {{/if}}
@@ -50,6 +50,8 @@
             </form>
         </div>
     </script>
+    
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
     <script src="SPAQuiz.js"></script>
