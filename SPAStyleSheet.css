@@ -2,16 +2,7 @@ h1{
     text-align: center;
 }
 
-h2{
-    text-align: center;
-}
-
-form{
-    text-align: center;
-}
-
-.container p {
-    text-align: center;
-    display: inline; /* or inline-block */
-    margin-right: 20px; /* Optional: Add some space between the paragraphs */
+.answer-choices {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove default padding */
 }
