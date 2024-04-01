@@ -217,13 +217,16 @@ function nextQuestion() {
 
 
 // Function to end the quiz and display results
+// Function to end the quiz and display results
 function endQuiz() {
 
     const score = Math.round((correctAnswers / totalQuestions) * 100);
+    const elapsedTime = calculateElapsedTime();
 
     // Display result view
     resultView.innerHTML = `<h2>Quiz Results</h2>`;
     resultView.innerHTML += `<p>Total Score: ${score}%</p>`;
+    resultView.innerHTML += `<p>Elapsed Time: ${elapsedTime} seconds</p>`; // Add elapsed time
 
     // Determine pass/fail message
     let message;
@@ -245,6 +248,7 @@ function endQuiz() {
         location.reload(); 
     });
 }
+
 
 // Function to reset quiz and start over
 function resetQuiz() {
