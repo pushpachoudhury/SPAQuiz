@@ -1,4 +1,3 @@
-// Define variables to store references to DOM elements
 const startPage = document.getElementById("start-page");
 const quizView = document.getElementById("quiz-view");
 const feedbackView = document.getElementById("feedback-view");
@@ -8,7 +7,7 @@ const quizSelect = document.getElementById("quiz-select");
 const studentNameInput = document.getElementById("student-name");
 const quizTemplate = document.getElementById("quiz-template").innerHTML;
 
-let quizData;
+let quizData; 
 let currentQuestionIndex = 0; 
 let correctAnswers = 0; 
 let totalQuestions; 
@@ -31,13 +30,13 @@ async function fetchQuizData(selectedQuiz) {
 
 // Function to start the quiz
 async function startQuiz(selectedQuiz, studentName) {
-
+    
     quizData = await fetchQuizData(selectedQuiz);
     totalQuestions = quizData.questions.length;
-   
+    
     startPage.style.display = "none";
     renderQuiz();
-
+   
     startTime = new Date().getTime();
 }
 
@@ -81,26 +80,23 @@ function calculateElapsedTime() {
 function calculateScore() {
     return Math.round((correctAnswers / totalQuestions) * 100);
 }
-
 // Function to render a narrative question
 function renderNarrativeQuestion(question, template) {
     const html = template({ question: question.question });
     quizView.innerHTML = html;
 
-    // Remove existing submit button, if any
+
     const existingSubmitButton = document.getElementById("submit-answer-btn");
     if (existingSubmitButton) {
         existingSubmitButton.remove();
     }
 
-    // Create input field for narrative question
     const inputField = document.createElement("input");
     inputField.setAttribute("type", "text");
     inputField.setAttribute("id", "narrative-answer");
     inputField.setAttribute("placeholder", "Enter your answer...");
     quizView.appendChild(inputField);
 
-    // Create submit button
     const submitButton = document.createElement("button");
     submitButton.setAttribute("type", "button"); // Change type to "button"
     submitButton.setAttribute("id", "submit-answer-btn");
@@ -108,7 +104,6 @@ function renderNarrativeQuestion(question, template) {
     submitButton.textContent = "Submit Answer";
     quizView.appendChild(submitButton);
 
-    // Add event listener to submit answer button
     submitButton.addEventListener("click", function(event) {
         event.preventDefault();
         const userInput = document.getElementById("narrative-answer").value.trim();
@@ -116,11 +111,13 @@ function renderNarrativeQuestion(question, template) {
     });
 }
 
+
+
 // Function to render a multiple choice question
 function renderMultipleChoiceQuestion(question, template) {
-  
+
     const options = question.options.map(option => {
-       
+
         if (option.startsWith("http")) {
             return { image: true, content: option };
         } else {
@@ -128,26 +125,11 @@ function renderMultipleChoiceQuestion(question, template) {
         }
     });
 
-    // Render the template with modified options
     const html = template({ question: question.question, options: options });
     quizView.innerHTML = html;
 
-    // Remove existing submit button, if any
-    const existingSubmitButton = document.getElementById("submit-answer-btn");
-    if (existingSubmitButton) {
-        existingSubmitButton.remove();
-    }
-
-    // Create submit button
-    const submitButton = document.createElement("button");
-    submitButton.setAttribute("type", "button"); 
-    submitButton.setAttribute("id", "submit-answer-btn");
-    submitButton.classList.add("btn", "btn-light");
-    submitButton.textContent = "Submit Answer";
-    quizView.appendChild(submitButton);
-
-    // Add event listener to submit answer button
-    submitButton.addEventListener("click", function(event) {
+    const quizForm = document.getElementById("quiz-form");
+    quizForm.addEventListener("submit", function(event) {
         event.preventDefault();
         const selectedAnswer = document.querySelector("input[name='answer']:checked");
         if (!selectedAnswer) {
@@ -158,19 +140,21 @@ function renderMultipleChoiceQuestion(question, template) {
     });
 }
 
-// Function to submit the user's answer and display feedback
 function submitAnswer(userInput) {
     const currentQuestion = quizData.questions[currentQuestionIndex];
 
-    const isCorrect = currentQuestion.correctAnswer.includes(userInput.toLowerCase());
+    const isCorrect = currentQuestion.correctAnswer.toLowerCase() === userInput.toLowerCase();
 
     if (isCorrect) {
         correctAnswers++;
-        displayFeedback("Brilliant!");
+        displayFeedback("Correct! Well done!");
     } else {
-        displayIncorrectFeedback(currentQuestion);
+        displayIncorrectFeedback(currentQuestion.correctAnswer);
     }
 }
+
+
+
 
 // Function to display feedback and advance to the next question
 function displayFeedback(message) {
@@ -181,32 +165,43 @@ function displayFeedback(message) {
     }, 1000);
 }
 
-// Function to display feedback for an incorrect answer
-function displayIncorrectFeedback(question) {
+// Function to display incorrect feedback with correct answer and "Got it" button
+function displayIncorrectFeedback(correctAnswer) {
 
-    feedbackView.innerHTML = "";
-    const feedbackMessage = `Incorrect! The correct answer is: ${question.correctAnswer[0]}`;
+    feedbackView.style.display = "none";
 
     const newFeedbackView = document.createElement("div");
     newFeedbackView.classList.add("feedback-view");
 
-    const feedbackParagraph = document.createElement("p");
-    feedbackParagraph.textContent = feedbackMessage;
-    newFeedbackView.appendChild(feedbackParagraph);
+    const isImage = correctAnswer.startsWith("http");
 
+    if (isImage) {
 
-    const gotItButton = document.createElement("button");
-    gotItButton.textContent = "Got it";
-    gotItButton.classList.add("btn", "btn-primary");
+        newFeedbackView.innerHTML = `
+            <p>Incorrect! The correct answer:</p>
+            <img src="${correctAnswer}" alt="Correct Answer">
+            <button id="got-it-btn" class="btn btn-primary">Got it</button>
+        `;
+    } else {
 
+        newFeedbackView.innerHTML = `
+            <p>Incorrect! The correct answer is: ${correctAnswer}</p>
+            <button id="got-it-btn" class="btn btn-primary">Got it</button>
+        `;
+    }
+
+    document.body.appendChild(newFeedbackView);
+
+    // Add event listener to "Got it" button
+    const gotItButton = document.getElementById("got-it-btn");
     gotItButton.addEventListener("click", function() {
-        feedbackView.removeChild(newFeedbackView); 
-        nextQuestion(); 
-    });
 
-    newFeedbackView.appendChild(gotItButton);
-    
-    feedbackView.appendChild(newFeedbackView);
+        newFeedbackView.remove();
+        
+        feedbackView.style.display = "block";
+        
+        nextQuestion();
+    });
 }
 
 
@@ -220,14 +215,17 @@ function nextQuestion() {
     }
 }
 
+
 // Function to end the quiz and display results
 function endQuiz() {
-  
+
     const score = Math.round((correctAnswers / totalQuestions) * 100);
 
+    // Display result view
     resultView.innerHTML = `<h2>Quiz Results</h2>`;
     resultView.innerHTML += `<p>Total Score: ${score}%</p>`;
 
+    // Determine pass/fail message
     let message;
     if (score >= 80) {
         message = `Congratulations ${studentNameInput.value}! You passed the quiz.`;
@@ -236,18 +234,15 @@ function endQuiz() {
     }
     resultView.innerHTML += `<p>${message}</p>`;
 
-    // Add buttons to retake quiz or return to main page
     resultView.innerHTML += `
         <button id="retake-quiz-btn" class="btn btn-primary">Retake Quiz</button>
         <button id="return-to-main-btn" class="btn btn-secondary">Return to Main Page</button>
     `;
 
-    // Add event listener to retake quiz button
     document.getElementById("retake-quiz-btn").addEventListener("click", resetQuiz);
 
-    // Add event listener to return to main page button
     document.getElementById("return-to-main-btn").addEventListener("click", function() {
-        location.reload(); // Reload the page to return to the main page
+        location.reload(); 
     });
 }
 
