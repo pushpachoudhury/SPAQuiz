@@ -81,7 +81,7 @@
           "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/splitString.png",
           "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/stringLength.png"
         ],
-        "correctAnswer": "https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/reverseString.png"
+        "correctAnswer":"https://raw.githubusercontent.com/pushpachoudhury/SPAQuiz/main/reverseString.png"
       },
       {
         "id": 10,
